@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="homeApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+body {
+  padding: 100px;
+}
+.float_right{
+	float: right;
+}
+
+.margin_10px{
+	margin: 10px;
+}
+</style>
+</head>
+<body ng-controller="homeController as hmeCtrl">
+<div class="panel-headline">
+	<div class="spanel panel panel-headline">
+		<div class="panel-body">
+			<h2>AngularJs <small>With</small> NodeJs</h2>
+		</div>
+	</div>
+	<div class="container" ng-if="isLogShown">
+		<div class="row">
+			<div class="col-xs-12 margin_10px">
+				<div class="col-xs-2">
+					<input type="text" class="form-control" placeholder="Search" ng-model="search">
+				</div>
+			</div>
+		</div>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Address</th>
+					<th>Phone</th>
+				</tr>
+			</thead>
+			<tbody ng-repeat="list in nameList | filter:search">
+				<tr>
+					<td>{{list.ID}}</td>
+					<td>{{list.NAME}}</td>
+					<td>{{list.EMAIL}}</td>
+					<td>{{list.ADDRESS}}</td>
+					<td>{{list.PHONE}}</td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+</div>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script> -->
+
+<script src="/js/resources/jquery-2.1.0.min.js"></script>
+<script src="/js/resources/bootstrap.min.js"></script>
+<script src="/js/resources/angular.min.js"></script>
+
+<!-- App JS -->
+<script src="/js/homeController.js"></script>
+</body>
+</html>
