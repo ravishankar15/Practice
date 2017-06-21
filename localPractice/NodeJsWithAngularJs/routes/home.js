@@ -1,6 +1,6 @@
 
 /*
- * GET users listing.
+ * GET Customer listing.
  */
 var con = require("../dbconfig");
 exports.displayLog = function(req, res){
