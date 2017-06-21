@@ -1,8 +1,7 @@
 
 
 # NodeJsWithAngularJs
-A simple web app demonstrating the usage of angular js with node js
-
+A simple web app demonstrating the usage of angular js with nodejs
 
 ## Usage
 
