@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
   padding: 100px;
@@ -14,6 +15,12 @@ body {
 
 .margin_10px{
 	margin: 10px;
+}
+.margin_bottom_15px{
+	margin-bottom: 15px;
+}
+.margin_right_10px{
+	margin-right: 10px;
 }
 </style>
 </head>
@@ -30,6 +37,9 @@ body {
 				<div class="col-xs-2">
 					<input type="text" class="form-control" placeholder="Search" ng-model="search">
 				</div>
+				<div class="col-xs-2 float_right">
+					<button type="button" class="btn btn btn-primary" ng-click="initAddCustomer()" data-toggle="modal" data-target="#addEditModal">Add</button>
+				</div>					
 			</div>
 		</div>
 		<table class="table table-bordered">
@@ -40,6 +50,7 @@ body {
 					<th>Email</th>
 					<th>Address</th>
 					<th>Phone</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody ng-repeat="list in nameList | filter:search">
@@ -49,6 +60,10 @@ body {
 					<td>{{list.EMAIL}}</td>
 					<td>{{list.ADDRESS}}</td>
 					<td>{{list.PHONE}}</td>
+					<td>
+						<a class="editAction fa fa-edit margin_right_10px" data-toggle="modal" data-target="#addEditModal" ng-click=initAddEditCustomer(list)></a>
+						<a class="deleteAction fa fa-trash-o" data-toggle="modal" data-target="#deleteModal" ng-click="initAddEditCustomer(list)"></a>
+					</td>
 				</tr>				
 			</tbody>
 		</table>
@@ -61,8 +76,12 @@ body {
 <script src="/js/resources/jquery-2.1.0.min.js"></script>
 <script src="/js/resources/bootstrap.min.js"></script>
 <script src="/js/resources/angular.min.js"></script>
+<script src="/js/resources/ui-bootstrap-tpls.min.js"></script>
 
 <!-- App JS -->
 <script src="/js/homeController.js"></script>
+
+<!-- Html Files -->
+<section ng-include="'/customerModal.html'"></section>
 </body>
 </html>

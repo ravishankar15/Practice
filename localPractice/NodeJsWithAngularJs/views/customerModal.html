@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div id="addEditModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="alert outline">
+      		<div class="row margin_bottom_15px">
+      			<div class="col-xs-4">
+      				<input type="text" ng-disabled="update" class="form-control" placeholder="Id" name="id" ng-model="custInfo.ID">
+      			</div>
+      			<div class="col-xs-4">
+      				<input type="text" class="form-control" placeholder="Name" name="name" ng-model="custInfo.NAME">
+      			</div>
+      			<div class="col-xs-4">
+      				<input type="text" class="form-control" placeholder="Email" name="email" ng-model="custInfo.EMAIL">
+      			</div>
+      		</div>
+      		<div class="row">
+      			<div class="col-xs-4">
+      				<input type="text" class="form-control" placeholder="Address" name="address" ng-model="custInfo.ADDRESS">
+      			</div>
+      			<div class="col-xs-4">
+      				<input type="text" class="form-control" placeholder="phone" name="phone" ng-model="custInfo.PHONE">
+      			</div>
+      		</div>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" ng-if="!update" ng-click="addCustomer()" class="btn btn btn-primary">Save</button>
+        <button type="button" ng-if="update" ng-click="updateCustomer()" class="btn btn btn-primary">Update</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete</h4>
+        </div>
+        <div class="modal-body">
+          <p>Delete seleted data</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" ng-click="deleteCustomer()" class="btn btn btn-primary">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

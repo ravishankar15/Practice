@@ -22,7 +22,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'views')));
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -30,6 +30,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/home', home.displayLog);
+app.post('/addCustomer', home.addCustomer);
+app.post('/updateCustomer', home.updateCustomer);
+app.post('/deleteCustomer', home.deleteCustomer);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
