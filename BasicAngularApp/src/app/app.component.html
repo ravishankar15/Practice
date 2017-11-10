@@ -1,0 +1,46 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+
+
+<h4>The Router Link</h4>
+<a routerLink="/member">Member(ItemList)</a>
+<a routerLink="/product">Product(Template Driven Form)</a>
+<a routerLink="/modelDrivenForm">Model Driven Form</a>
+<a routerLink="/baseConverter">Base Converter</a>
+<br/>
+<!-- Defines the place where the above linked html should be displayed -->
+<router-outlet></router-outlet>
+
+<!-- <app-product></app-product><br/>
+<app-member></app-member> -->
+
+<h2>Here are some links to help you start: </h2>
+
+<h4>Binding Objects</h4>
+{{obj.name}}
+
+<div *ngIf = "isTrue; then alphabet else numeric"></div>
+
+<ng-template #alphabet>
+	<h4>Binding Array values Alphabets</h4>
+	<ul>
+		<li *ngFor = "let i of arrAlpha"> {{i}} </li>
+	</ul>
+</ng-template>
+
+<ng-template #numeric>
+	<h4>Binding Array values Numeric</h4>
+	<ul>
+		<li *ngFor = "let i of arrNum"> {{i}} </li> 
+	</ul>
+</ng-template>
+
+<h4>Pipes</h4>
+<p>{{day | date}}</p>
+<p>{{day | date: 'shortDate'}}</p>
+<p>{{day | date: 'fullDate' | uppercase}}</p>
+<p>{{arrNumValue | sort}}</p>
