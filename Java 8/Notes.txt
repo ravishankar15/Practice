@@ -1,0 +1,129 @@
+Lambdas:
+
+-> Why lambdas ?
+  
+    -> Enables funcitonal programming - we are used to write object oriented programming lambdas 
+                                        allows us to write functional programming
+    -> Readable and concise code
+    -> Easier to use API and Libraries
+    -> Enables support for parallel processing
+
+-> Functional vs OOP
+    
+    -> The functional programming doesnt allow us to do any new features. It is another   programming pradim that allow us to write a more readable code
+
+-> Passing Behavior in OOP and Deriving to Lambda expression
+    -> There is a traditional behaviour of doing this using interfaces(Refer Greeter.java)
+    -> Using Lambdas expression we can assign a function to a variable and pass it on.
+        Assigning a function does not refer to the return type of the function
+
+    E.g, 
+    //This is not the behaviour expected
+    int aBlockOfCode = /*Calling a function that would return a int value*/
+
+    //This is the behaviour expected
+    aBlockOfCode = public void perform()  {
+      System.out.println("Hello");
+    }
+    From the above we can derive the lambda expression,
+    1) We dont need "public" because it only makes sense if we are assosiated with the class
+    2) We dont need "perform" since it is the name of the function and we already have one
+        "aBlockOfCode"
+    3) We dont need the return type to be mentioned explicitly if we can look into the code
+        directly and derive it
+
+    The above three steps leaves us with,
+    aBlockOfCode = () {
+      System.out.println("Hello");
+    }
+    () - For specifying the parametes
+    {} - For writing the block of code
+    
+    We need to add one more thing for the lambda expression add ->
+    aBlockOfCode = () -> {
+      System.out.println("Hello");
+    }
+
+    -> The type of the aBlockOfCode is an interface that has a method matching to the Lambda 
+        expression
+
+
+-> Type Inferences (Refer TypeInference.java)
+    -> In the Lambda expression we dont need to explictly mention the type in the parameters. It 
+        will take those from the interface
+
+-> Runnable using Lambdas(Refer RunnableExample.java)
+    -> Since we need an interface that has only one method for the lambda expression we can take 
+        Runnable interface as an perfect example because it implements only one method run()
+
+-> Functional Interface
+    -> Interface can have only abstract methods and its the responsibility of the class implementing the interface to write its implementation. But in Java 8 the interface have the implementation
+
+    E.g, An interface can have 2 methods declared and 1 method with default implementation
+
+    -> Interface with only one abstract method is called Functional Interface.
+
+    -> (Refer ExerciseForBasic.java) Since in Java 8 there is no separate type being defined
+        for the lambda expression we are leveraging the functionality of the interface.
+
+        In the example we have used an interface called Condition that returns a boolean based on the condition. It seems to be like a generic approch which may be used predominantly
+    -> In Java 8 we have some predefined interfaces to prevent the programmer to write these
+        kind of simple interfaces and this interfaces are available in java.util.functions package(Refer FunctionalInterface.java)
+
+-> Exception Handling in Lambda(Refer ExceptionHandling.java)
+    -> The Exception handling is not much diffrent from the earlier java version
+    -> In lambda expression we can create a wrapper method for handling the exception in the 
+        lambda expression
+
+-> Closures (Refer Closures.java)
+
+-> This Reference(Refer ThisReference.java)
+    -> this operator cannot be referenced inside the lambda expression like they do in anonymous 
+        inner classes.
+
+    -> In anonymous inner class the this refers to the instance of the inner class
+    -> In case of lambda the instance does not touch the this reference. Hence the this reference
+        inside lambda and outside it remains the same. Like if we refer it in a lambda defined in a non-staic method(Refer the example)
+
+-> Method References(Refer MethodReferences.java)
+    -> Method References are another way of writting lambdas. It can be used under two 
+        circumstences, If Lambda expression,
+        -> Takes no input and returns no value
+        -> Takes one input and does not return value
+
+-> forEach(Refer CollectionIteration.java)
+    -> The forEach method takes in the consumer object and performs the operation
+
+-> Streams(Refer StreamsExample.java)
+    -> A sequence of elements supporting sequential and parallel aggregate operations
+    -> Anology, Suppose we have 6 cars and 3 person 
+        -> 1st person - Paints the car
+        -> 2nd person - Fixes the engine
+        -> 3rd person - Fixes the tyers
+
+    The clasic method would be,
+    We will call the 1st person and ask him to paint the 6 cars then, the 2nd person to fix the engine and finally the 3rd person to fix the tyers.
+
+    But this method we are iterating through the list thrice which doesn't seem efficient.
+
+    If we consider the real manufacturing unit it doesn't happen this way,
+    There will be a conveyer belt where the cars will be sent and at each position the person will do his job and the belt moves on.
+
+    Thus streams will be created with the collection as a source(Refer example)
+
+
+    -> The stream usually consist of 3 parts
+        -> The source for the stream
+        -> Operations that need to be performed
+        -> Terminal opertaion i.e, the end condition
+    -> Without the end condition the stream doesn't get started
+
+
+    -> The Parallel stream could possibly return a parallel stream with this collection as 
+        source. i.e, If this can be excecuted in multiple cores
+
+
+
+
+
+
