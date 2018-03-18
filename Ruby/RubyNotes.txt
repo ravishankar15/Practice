@@ -1,0 +1,38 @@
+Ruby: It is a pure object oriented programming
+
+BEGIN: Declares code to be called before the program is run
+	BEGIN {
+	   code
+	}
+
+END: Declares code to be called at the end of the program
+	END {
+		code
+	}
+
+Class: When we define a class we define a blue print for a data type. The class
+	definition starts with the keyword class followed by the class name and is delimited
+	by end.
+	
+	class <Class Name> 
+		<Code>
+	end
+
+	The object for a class is declared using the new keyword
+	<Object Name> = <Class Name>.new
+
+	The initialize method is a standard ruby class method and works almost the same way 
+	as any other constructor.
+
+Class Variable: The class variable is a variable, which is shared between all instances of a 		class. In other words there is one instance of the variable and it is accessed by object 		instances.	class variables are prefixed with two @ charecters (@@). The class variable 		must be initialized within the class definition
+
+Access Control: There are three levels of protection at instance methods level,
+	public: public methods can be called by anyone. Methods are public by default except for 		initialize, which is always private.
+	private: private methods cannot be accessed, or even viewed from outside the class. Only 		the class methods can access private members
+	protected: A protected method can be invoked only by objects of the defining class and its 		subclass. Access is kept with the family
+
+Freezing Objects: Sometimes we want to prevent an object from being changed. Any object can be 		frozen by invoking Object.freeze
+
+class constant: We can define a constant inside a class by assigning a direct numeric or string
+	value to a variable, which is defined without using either @ or @@. Once a constant is declared we cannot change its value we can access the constant inside the class just like a variable.
+	If we need to access it outside the class than <class name> :: <constant>
