@@ -24,7 +24,13 @@ Class: When we define a class we define a blue print for a data type. The class
 	The initialize method is a standard ruby class method and works almost the same way 
 	as any other constructor.
 
+Local Variable: Local variables are the variables that are defined in a method. Local variables are not defined outside the method.
+
+Instance Variable: Instance variables are available across methods for any particular instance or object. It means it changes for diffrent objects. The instance variable is precceded with single @ charecter (@) .
+
 Class Variable: The class variable is a variable, which is shared between all instances of a 		class. In other words there is one instance of the variable and it is accessed by object 		instances.	class variables are prefixed with two @ charecters (@@). The class variable 		must be initialized within the class definition
+
+Global Variable: Global variables are available accross all the classes and it is preceded with a $ sign. 
 
 Access Control: There are three levels of protection at instance methods level,
 	public: public methods can be called by anyone. Methods are public by default except for 		initialize, which is always private.
