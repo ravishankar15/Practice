@@ -22,6 +22,6 @@ Functions
   Function Parameters,
     - Parameters with types
     - Rest parameters
-    - Default parameters
+    - Default parameter
 
 
