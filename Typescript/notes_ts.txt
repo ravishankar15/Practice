@@ -1,0 +1,27 @@
+Introduction:
+  - Typescript is the typed superset of javascript that compiles(transpiles) to javascript
+
+why typescript?
+ - It adds type enforcement unlike javascript
+ - It is much easy to maintain
+ - It has cross platform support(like java) run on any browser and any operating systems
+
+Types:
+  There are diffrent types available in typescript which is almost available in JS like,
+    - Number, String, Boolean, Any, void, Null
+
+Variable Declarations:
+  Declaration of variable can be done with following in Typescript
+    -let, const, var
+
+Enums
+  Enums allows us to define a set of named numeric constants. An enum can be defined using the enum keyword
+
+Functions
+  - Just like anyother programming language it is a building block of code
+  Function Parameters,
+    - Parameters with types
+    - Rest parameters
+    - Default parameters
+
+
