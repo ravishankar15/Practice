@@ -28,3 +28,11 @@ Functions
   - Lambda refers to anonymous function in programming. Lambda functions are a concise mechanisam to represent anonymous functions.
 
 
+Module Loaders:
+  - node js manages the ts file using commonjs module which is the default one
+
+  - tsc --m amd --target es6 app_2.ts --outFile out.js
+    --m specifies the module to be used for compilation amd, es6, etc., by default node uses the commonjs
+    --target specifies the module to be used to compilation
+    --outFile specifies the name of the compiled js file
+  - node out.js will print the output
