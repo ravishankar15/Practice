@@ -22,6 +22,9 @@ Functions
   Function Parameters,
     - Parameters with types
     - Rest parameters
-    - Default parameter
+    - Default parameters
+
+  - Anonymous function which don't have name/identifier are considered as anonymous functions. These functions are dynamic and called during runtime
+  - Lambda refers to anonymous function in programming. Lambda functions are a concise mechanisam to represent anonymous functions.
 
 

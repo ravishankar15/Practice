@@ -58,3 +58,16 @@ function GetInfo(info: string = "Happy") {
 }
 GetInfo()
 GetInfo("Sad")
+
+//#######Function Advanced
+
+//Ananomous function
+let studentName = function (fName: String, lName: String) {
+  return fName + "..." + lName
+}
+console.log(studentName("Ravishankar", "G"))
+
+//Arrow function
+let studentNameArrow = (fName: String, lName: String) => { return fName + "..." + lName }
+console.log(studentNameArrow("Harikumar", "G"))
+

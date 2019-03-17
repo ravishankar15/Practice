@@ -38,6 +38,7 @@ function GetPeopleInfo(PInfos) {
     });
 }
 GetPeopleInfo(PInfos);
+//Rest parameters can accept values of single type
 function GetNumbers() {
     var nums = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -54,3 +55,12 @@ function GetInfo(info) {
 }
 GetInfo();
 GetInfo("Sad");
+//#######Function Advanced
+//Ananomous function
+var studentName = function (fName, lName) {
+    return fName + "..." + lName;
+};
+console.log(studentName("Ravishankar", "G"));
+//Arrow function
+var studentNameArrow = function (fName, lName) { return fName + "..." + lName; };
+console.log(studentNameArrow("Harikumar", "G"));
