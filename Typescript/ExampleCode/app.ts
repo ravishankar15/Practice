@@ -134,3 +134,14 @@ class StudentShort {
 let s1 = new StudentShort("Ravishankar", "MGP")
 console.log("The full name is " + s1.GetFullName())
 console.log("The full name function is  " + s1.GetFullName)
+
+
+// Generics
+let studentsG: Array<StudentInfo> = [
+  { Name: "gabc", Age: 12, Phone: 12345, Language: LanguageKnown[LanguageKnown.English] },
+  { Name: "gdef", Age: 23, Phone: 54321, Language: LanguageKnown[LanguageKnown.Tamil] },
+  { Name: "gghi", Age: 33, Phone: 67890, Language: LanguageKnown[LanguageKnown.Hindi] }
+]
+studentsG.forEach(element => {
+  console.log("Student " + element.Name + " with age " + element.Age + " phone number " + element.Phone)
+})
