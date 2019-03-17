@@ -64,3 +64,47 @@ console.log(studentName("Ravishankar", "G"));
 //Arrow function
 var studentNameArrow = function (fName, lName) { return fName + "..." + lName; };
 console.log(studentNameArrow("Harikumar", "G"));
+var student = {
+    Name: "Hari",
+    Age: 23,
+    Phone: 3463142,
+    Language: LanguageKnown[LanguageKnown.Hindi] //Mandotory for pushing to array why ?
+};
+var students = [
+    { Name: "sabc", Age: 12, Phone: 12345, Language: LanguageKnown[LanguageKnown.English] },
+    { Name: "sdef", Age: 23, Phone: 54321, Language: LanguageKnown[LanguageKnown.Tamil] },
+    { Name: "sghi", Age: 33, Phone: 67890, Language: LanguageKnown[LanguageKnown.Hindi] }
+];
+console.log(students);
+students.push(student);
+students.forEach(function (element) {
+    console.log("Student " + element.Name + " with age " + element.Age + " phone number " + element.Phone);
+});
+/**************** Classes ************* */
+var Student = /** @class */ (function () {
+    function Student(lName, fName) {
+        this._lName = lName;
+        this._fName = fName;
+    }
+    Student.prototype.GetFullName = function () {
+        return this._fName + "....." + this._lName;
+    };
+    return Student;
+}());
+var s = new Student("Ravishankar", "MGP");
+console.log("The full name is " + s.GetFullName());
+console.log("The full name function is  " + s.GetFullName);
+//Short handed approach
+var StudentShort = /** @class */ (function () {
+    function StudentShort(fName, lName) {
+        this.fName = fName;
+        this.lName = lName;
+    }
+    StudentShort.prototype.GetFullName = function () {
+        return this.fName + "....." + this.lName;
+    };
+    return StudentShort;
+}());
+var s1 = new StudentShort("Ravishankar", "MGP");
+console.log("The full name is " + s1.GetFullName());
+console.log("The full name function is  " + s1.GetFullName);

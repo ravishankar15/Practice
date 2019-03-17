@@ -71,3 +71,66 @@ console.log(studentName("Ravishankar", "G"))
 let studentNameArrow = (fName: String, lName: String) => { return fName + "..." + lName }
 console.log(studentNameArrow("Harikumar", "G"))
 
+//Interfaces
+interface StudentInfo {
+  Name: string,
+  Age: Number,
+  Phone: Number,
+  Language: string
+}
+
+
+let student: StudentInfo = {
+  Name: "Hari",
+  Age: 23,
+  Phone: 3463142,
+  Language: LanguageKnown[LanguageKnown.Hindi] //Mandotory for pushing to array why ?
+}
+let students: StudentInfo[] = [
+  { Name: "sabc", Age: 12, Phone: 12345, Language: LanguageKnown[LanguageKnown.English] },
+  { Name: "sdef", Age: 23, Phone: 54321, Language: LanguageKnown[LanguageKnown.Tamil] },
+  { Name: "sghi", Age: 33, Phone: 67890, Language: LanguageKnown[LanguageKnown.Hindi] }
+]
+console.log(students)
+students.push(student)
+
+students.forEach(element => {
+  console.log("Student " + element.Name + " with age " + element.Age + " phone number " + element.Phone)
+})
+
+
+/**************** Classes ************* */
+class Student {
+
+  private _lName: string;
+  private _fName: string;
+
+  constructor(lName: string, fName: string) {
+    this._lName = lName;
+    this._fName = fName
+  }
+
+  GetFullName(): string {
+    return this._fName + "....." + this._lName
+  }
+}
+
+let s = new Student("Ravishankar", "MGP")
+console.log("The full name is " + s.GetFullName())
+console.log("The full name function is  " + s.GetFullName)
+
+
+//Short handed approach
+class StudentShort {
+
+  constructor(private fName: string, private lName: string) {
+  }
+
+  GetFullName(): string {
+    return this.fName + "....." + this.lName
+  }
+}
+
+let s1 = new StudentShort("Ravishankar", "MGP")
+console.log("The full name is " + s1.GetFullName())
+console.log("The full name function is  " + s1.GetFullName)
