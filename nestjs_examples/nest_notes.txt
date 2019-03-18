@@ -1,0 +1,21 @@
+Introduction:
+  - Nest is a framework for building efficient, scalable Node.js server-side applications. 
+  - Under the hood, Nest makes use of Express, but also provides compatibility with wide range of other libraries
+
+Folder Structure
+  - main.ts : The entry file of the application which uses NestFactory to create a Nest application instance
+  - app.module.ts : The root module of the application
+  - app.controller.ts : Basic controller sample with a single route
+  - The main.ts includes an async function, which will bootstrap our application,
+    - To create a Nest application instance, we are using the NestFactory.
+    - NestFactory is one of the most fundamental classes, it exposes a few static methods that allows creating application instance.
+    - The create() method returns an object, which fullfills the INestApplication interface, and provides a set of usable methods
+
+Platform
+  - Nest aims to be a platform-agnostic framework. 
+  - Technically nest is able to work with any HTTP library as soon as an adapter is created. And there are two HTTP platforms supported
+    out-of-the-box so far, express and fastify
+    - platform-express : Express is a well-known minimalist web framework for node. It is battle tested, production-ready library with lots of
+        resources implemented by the community. The @nestjs/platform-express package is being used by default
+    - platform-fastify : Fastify is a fast and low overhead highly focused on providing the best efficiency and speed
+  - In addition, every platform exposes a dedicated application interface, respectively NestExpressApplication and NestFastifyApplication

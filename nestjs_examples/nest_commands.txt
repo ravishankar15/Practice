@@ -1,0 +1,5 @@
+To start the application
+$ npm run start
+
+To create new project
+$ nest new project-name
