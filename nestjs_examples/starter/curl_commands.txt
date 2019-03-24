@@ -1,0 +1,23 @@
+#findAll
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats?limit=12'
+
+#findone
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/12'
+
+#create
+curl -v -H "Content-Type: application/json" -d '{
+  "name":"hari",
+  "age":"19",
+  "breed":"unknown"
+}' -X POST 'http://localhost:3000/cats'
+
+#update
+curl -v -H "Content-Type: application/json" -d '{
+  "name":"sori",
+  "age":91,
+  "bread":"unknown"
+}' -X PUT 'http://localhost:3000/cats/12'
+
+
+#delete
+curl -v -H "Content-Type: application/json" -X DELETE 'http://localhost:3000/cats/12'

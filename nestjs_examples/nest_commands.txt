@@ -3,3 +3,12 @@ $ npm run start
 
 To create new project
 $ nest new project-name
+
+To create new controller(creates CatsController)
+$ nest g controller cats
+
+To create new service
+$ nest g service cats
+
+To create a module
+$ nest g module cats

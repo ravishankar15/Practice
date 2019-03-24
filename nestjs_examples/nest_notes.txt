@@ -19,3 +19,47 @@ Platform
         resources implemented by the community. The @nestjs/platform-express package is being used by default
     - platform-fastify : Fastify is a fast and low overhead highly focused on providing the best efficiency and speed
   - In addition, every platform exposes a dedicated application interface, respectively NestExpressApplication and NestFastifyApplication
+
+Controllers
+  - Controllers are responsible for handling the requests and returning responses to the client.
+  - A controllers purpose is to receive specific requests for the application. The routing mechanisam controls which controller receives which
+    requests.
+  - Each controller can have different routes and each route can perform different action
+  - In order to create a basic controller, we use classes and decorators. Decorators associate classes with required metadata and enable nest to
+    create a routing map
+
+Providers
+  - Basically, almost anything can be considered as a provider - service, repository, factory, helper and so on. 
+  - All of them can inject dependencies meaning they can create various relationships with each other.
+  - But in fact, a provider is nothing else than just a simple class annotated with and @injectable() decorator
+
+Modules
+  - A module is a class annotated with a @Module() decorator. The @Module() decorator provides metadata that nest makes use of to organize the
+    application structure.
+  - Each application has at least one module, a root module. The root module is the place where nest is starting to arrange the application graph.
+  - Based on the application size there will be many modules each with a closely related set of capabilities.
+  - The @Module decorator takes a single object whose properties describe the module
+    - providers: the providers that will be instantiated by the nest injector and may be shared at least across this module
+    - controllers: the set of controllers which have to be created
+    - imports: the list of imported modules that export the providers which are required in this module
+    - exports: the subset of providers that are provided by this module and should be available in the other modules
+  - The module encapsulates providers by default. It means that its impossible to inject providers that are neither directly part of the current module
+    nor they're exported from the imported modules.
+
+  - Features modules
+    - The controller and service belonging to the same application domain can be moved to the common module eg., CatsController and CatsService to a CatsModule
+  - Shared modules
+    - In nest, modules are singletons by default, and thus you can share the same instance of any provider between 2..* modules effortlessly.
+    - Every module is a shared module in fact. Once created it can be reused by any module.
+    - Eg., If we want to share the CatsService between few other modules we need to put the CatsService into exports. Now each module which would import the CatsModule has an access to the CatsService and will share the same instance with all of the modules that import this module as well.
+  - Dependency Injection
+    - A module class can inject providers as well(Eg., for configuration purpose). However the module classes cannot be injected by the providers due to 
+      the circular dependency
+  - Global modules
+    - If you have to import the same set of modules, it might be annoying. 
+      - In Angular, the providers are registered in the global scope. Once defined they're available everywhere.
+    - Nest encapsulates providers inside the module scope. You aren't able to use the module providers elsewhere without importing them.
+    - But sometimes, you may just want to provide a set of things which should be available always Eg., helpers, database connection
+    - @Global() decorator makes the module global-scoped. Eg., Afterward the CatsService will be ubiquitous although CatsModule won't be imported
+  - Dynamic modules
+    - The nest module system comes with a feature called dynamic modules. It enables you to create customizable modules without any effort.
