@@ -1,5 +1,5 @@
 #findAll
-curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats?limit=12'
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats?limit=12&token=123'
 
 #findone
 curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/12'
@@ -7,7 +7,7 @@ curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/1
 #create
 curl -v -H "Content-Type: application/json" -d '{
   "name":"hari",
-  "age":"19",
+  "age":19,
   "breed":"unknown"
 }' -X POST 'http://localhost:3000/cats'
 
@@ -21,3 +21,12 @@ curl -v -H "Content-Type: application/json" -d '{
 
 #delete
 curl -v -H "Content-Type: application/json" -X DELETE 'http://localhost:3000/cats/12'
+
+#throwMyException
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/exception'
+
+#throwCustomizedException
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/customized_exception'
+
+#throwHierarchyException
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/cats/hierarchy_exception'

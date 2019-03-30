@@ -63,3 +63,93 @@ Modules
     - @Global() decorator makes the module global-scoped. Eg., Afterward the CatsService will be ubiquitous although CatsModule won't be imported
   - Dynamic modules
     - The nest module system comes with a feature called dynamic modules. It enables you to create customizable modules without any effort.
+
+Middleware
+  - The middleware is a function which is called before the route handler. Middleware functions have access to the request and response objects, and the next middleware function in the applications request-response cycle.
+  - The next middleware function is commonly denoted by a variable named next
+  - Middleware functions can perform.,
+    - execute any code 
+    - make changes to the request and the response objects.
+    - end the request response cycle
+    - call the next middleware function in the stack
+    - if the current middleware function does not end the request-response cycle, it must call the next() to pass control to the next middleware function. Otherwise the request will be left hanging
+  - The nest middleware is either a function, or a class with an @Injectable() decorator. The class should implement the NestMiddleware interface, while the function does not have any special requirements
+
+
+                                              Pipe
+  Client-side ============================================> Route Handler
+                  filter
+
+
+Exception Filters
+  - The built-in exception layer is responsible for handling all thrown exceptions across your whole application. When an unhandled exception is caught,
+    The end user will recieve an appropriate error response
+  - Each occurred exception is handled by the global exception filter, and when its unrecoganized(is neither HttpException nor a class that inherits from  HttpException), a user recieve the 500 internal server error
+  - The basic exception handle is fine but sometimes we need have full control over the exception hence we use exception filter to customize our exception
+Pipes
+  - A pipe is a class annotated with the @Injectable() decorator. The pipe should implement the PipeTransform interface.
+  - A pipe transforms the input data to the desired output. Also it could take care of the validations, since its possible to throw an exception when the data is incorrect
+  - The pipe runs inside the exception zone. This means when exceptions are thrown they are handled by the core exception handler and exception filter that
+  are applied to the current context.
+  - Nest comes with two pipes available right out of the box,
+    - ValidationPipe
+    - ParseIntPipe
+Guards
+  - A guard is a class annotated with the @Injectable decorator. Guards should implement the CanActivate interface
+  - Guards have a single responsibility. They determine whether a request shall be handled by the route handler or not.
+  - Guards are executed after each middleware, but before any interceptor and pipe.
+  - Authentication : Confirming your own identity(Process of verifying who you are)
+  - Authorization : Granting access(Process of verifying what you have access to)
+Interceptors
+  - An interceptor is a class annotated with the @Injectable() decorator. Interceptors should implement the NestInterceptor interface.
+  - Interceptors have a set of usefull capabilities which are inspired by the Aspect-Oriented Programming (AOP) technique.
+    - bind extra logic before/after method execution.
+    - transform the result returned from a function
+    - transform the exception thrown from a function
+    - completely override a function depending on the choosen conditions (e.g. caching purpose)
+  - Each interceptor has the intercept method that take 2 arguments as follows
+    - Execution context
+      - The execution context offers a little bit more. It extends ArgumentsHost, but also provides more details about current execution process
+      - The getHandler() returns a reference to the currently processed handler while getClass() return a type of the controller class which this 
+        particular handler belongs to.
+      - Other words, If the user points to create() method that is defined and registered within CatsController, the getHandler() will return a reference 
+        to the create() method and getClass() in this case, will simply return a CatsController type(not instance)
+    - CallHandler
+      - If we don't manually call handle() method, the main handler won't be evaluated at all.
+      - Basically the CallHandler is an object which wraps the execution stream, and thus defers the final handler execution
+      - Example., Lets say we make a POST request which points to the create() handler(method). If an interceptor which does not call the handle() method is called along the way, the create() method won't be evaluated. Only when handle() is called(and its value has been returned), the final method would be triggered. why?
+        - Because Nest subscribes to the returned stream and uses values that this stream produces to create either a single response or multiple responses
+          from the end-user.
+        - Moreover, handle() returns an observable meaning, it supplies us with a very powerfull operators that helps with, response manipulation
+  - Acpect Interception
+    - The first use case is to add extra logic either before or after the function execution. Its usefull when we're gonna log intraction with the application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
