@@ -133,13 +133,8 @@ Authentication:
 
   - Bearer strategy
     - Bearer token are typically used to protect API endpoints and are often issued using OAuth 2.0. Bearer authentication stratergy authenticates users using a bearer token.
-
-<<<<<<< HEAD
 TypeORM:
   - In order to reduce the boilerplate necessary to start the database nest comes with the typeorm package.
-=======
-
->>>>>>> cc7ad51783f92d41f6b08b44a571e384cee7121f
 
 
 
