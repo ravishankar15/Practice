@@ -1,0 +1,5 @@
+#Insert query
+INSERT INTO photo(name, description, filename, views, isPublished) VALUES ('ravishankar', 'display picture', 'ravi_dp.jpeg', 1, false);
+
+#findall
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/photo'

@@ -1,0 +1,5 @@
+#gettoken
+curl -v -H "Content-Type: application/json" -X GET 'http://localhost:3000/auth/token'
+
+#getdata
+curl -v -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTU0MDI5MzUxLCJleHAiOjE1NTQwMzI5NTF9.EzhwN5jFU8f031w4Ahto1wlgo0pV_JocHqtlHs0KspU" -X GET 'http://localhost:3000/auth/data'

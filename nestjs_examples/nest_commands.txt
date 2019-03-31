@@ -12,3 +12,9 @@ $ nest g service cats
 
 To create a module
 $ nest g module cats
+
+To create a middleware
+$ nest g middleware logger
+
+To install packages
+$ npm i --save class-validator class-transformer
