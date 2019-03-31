@@ -124,14 +124,15 @@ Interceptors
   - Acpect Interception
     - The first use case is to add extra logic either before or after the function execution. Its usefull when we're gonna log intraction with the application.
 
+################## Techniques ######################
+Authentication:
+  - Authentication is an essential part of the most existing applications. There are diffrent approaches, strategies and ways to handle user authorization
+  - Passport is one of the most popular authentication library.
+      - passport-http-bearer(npm install --save @nestjs/passport passport passport-http-bearer)
+      - passport-jwt
 
-
-
-
-
-
-
-
+  - Bearer strategy
+    - Bearer token are typically used to protect API endpoints and are often issued using OAuth 2.0. Bearer authentication stratergy authenticates users using a bearer token.
 
 
 
